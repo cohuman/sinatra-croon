@@ -64,6 +64,7 @@ module Sinatra
 
     module Parser
       def self.parse_route_documentation(filename, line)
+        return {} unless File.exist?(filename)
         all_lines   = File.read(filename).split("\n").reverse
         index_start = all_lines.length - line + 1
         lines       = []
