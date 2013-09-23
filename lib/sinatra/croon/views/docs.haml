@@ -20,19 +20,20 @@
           %a{ :href => "#{documentation_base_uri}/#{urlify_section(section)}"}
             = section || "General"
           %ul.section
-            - docs[section].each do |doc|
+            - docs[section].each_with_index do |doc, index|
               %li
-                = doc[:verb].upcase
-                = doc[:uri]
+                %a{:href => "#section#{index}"}
+                  = doc[:verb].upcase
+                  = doc[:uri]
 
     #content
 
       %h2
         = current_section || "General"
 
-      - docs[current_section].each do |doc|
+      - docs[current_section].each_with_index do |doc, index|
 
-        #doc
+        %div{:id => "section#{index}"}
 
           .api
 
