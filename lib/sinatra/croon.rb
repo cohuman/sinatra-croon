@@ -4,7 +4,7 @@ require "sinatra/base"
 
 module Sinatra
   module Croon
-    VERSION = "0.2.1"
+    VERSION = "0.2.2"
 
     def self.registered(app)
       app.helpers Croon::Helpers
